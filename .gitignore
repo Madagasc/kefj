@@ -5,10 +5,10 @@
 /node_modules
 /lib
 
-# # release
-# /*
-# !/.gitignore
-# !/action.yml
-# !/.github
-# !/lib
-# !/node_modules
+# release
+/*
+!/.gitignore
+!/action.yml
+!/.github
+!/lib
+!/node_modules
