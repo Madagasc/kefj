@@ -3,5 +3,5 @@
 
 /node_modules
 /lib
-
-main.js
+!/lib/*.jar 
+!/lib/*.js
