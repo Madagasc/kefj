@@ -1,0 +1,24 @@
+name: "dry-run"
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'releases/**'
+  pull_request:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: '12.x'
+      - name: build
+        run: npm run release
+      - name: test
+        uses: ./
+        with:
+          nofail: false

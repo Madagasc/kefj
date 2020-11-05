@@ -1,0 +1,25 @@
+name: "test"
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'releases/**'
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm test
+      - run: npm run release
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ job.status }}
+          title: ${{ github.workflow }}
