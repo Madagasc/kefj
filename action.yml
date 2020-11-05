@@ -49,6 +49,7 @@ inputs:
 runs:
   using: 'node12'
   main: 'lib/main.js'
+  required: false
 
 branding:
   color: 'blue'
