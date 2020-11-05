@@ -1,0 +1,26 @@
+{
+  "name": "actions-status-discord",
+  "version": "0.0.0",
+  "description": "Post Github Actions CI status to Discord",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "jest --verbose --ci --detectOpenHandles",
+    "build": "npx tsc",
+    "release": "npm install && npm run build && npm prune --production",
+    "version": "npm run release"
+  },
+  "author": "Sarisia",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "jest": "<26.0.0",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@types/node": "^14.10.3",
+    "axios": "^0.20.0"
+  }
+}
